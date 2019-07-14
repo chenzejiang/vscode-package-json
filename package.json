@@ -1,0 +1,83 @@
+{
+  "name": "btc-watch",
+  "displayName": "btc-watch",
+  "description": "Vs Code配置状态栏查看 比特币，以太坊等400多种交易对价格，对接火币网API",
+  "version": "1.0.6",
+  "publisher": "btc-watch",
+  "keywords": [
+    "btc",
+    "vscode"
+  ],
+  "icon": "img/icon.png",
+  "engines": {
+    "vscode": "^1.28.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:USDT"
+  ],
+  "main": "./extension",
+  "contributes": {
+    "configuration": {
+      "properties": {
+        "btc-price-watch.coin": {
+          "type": "array",
+          "default": [
+            "btcusdt"
+          ],
+          "description": "配置需要监控的数字货币"
+        },
+        "btc-price-watch.updateInterval": {
+          "type": "number",
+          "default": 10000,
+          "description": "配置轮询请求最新数据的时间间隔，单位：毫秒"
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "blockChain",
+          "title": "数字货币价格监控",
+          "icon": "img/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "blockChain": [
+        {
+          "id": "USDT",
+          "name": "USDT"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "coin.focus",
+        "title": "跳转到浏览器火币网地址"
+      }
+    ]
+  },
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.42",
+    "@types/node": "^7.0.43",
+    "eslint": "^4.11.0",
+    "typescript": "^2.6.1",
+    "vscode": "^1.1.6"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "open": "^6.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chenzejiang/vscode-btc-price-watch"
+  },
+  "__npminstall_done": false
+}
