@@ -40,8 +40,7 @@ module.exports = class TreeProvider {
         const {
             label,
             extension,
-            icon,
-            link
+            icon
         } = item;
 
         let darkIcon = path.join(__dirname, "..", "img", icon);
@@ -50,7 +49,7 @@ module.exports = class TreeProvider {
         return new ItemLucky(label, vscode.TreeItemCollapsibleState.None, {
             title:label,
             command:extension,
-            arguments: [link]
+            arguments: []
         }, {
             dark: darkIcon,
             light: lightIcon
