@@ -1,7 +1,11 @@
 const vscode = require('vscode');
-const open = require("open");
 module.exports = function(context) {
-    context.subscriptions.push(vscode.commands.registerCommand('coin.focus', (link) => {
-        open(link);
+    context.subscriptions.push(vscode.commands.registerCommand('coin.focus', () => {
+        // open(link);
+        let terminal = vscode.window.createTerminal({
+			name: 'vscode-package-json'
+		});
+		terminal.show(true);
+		terminal.sendText('ls');
     }));
 };
