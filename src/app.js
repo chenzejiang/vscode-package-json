@@ -19,7 +19,7 @@ class App {
             return {
                 label: `npm run ${item}`,
                 icon: `${index}.png`,
-                extension: "coin.focus"
+                extension: "package-json.ls"
             }
         });
     }
@@ -31,12 +31,12 @@ class App {
             {
                 label: `npm install`,
                 icon: `npm.png`,
-                extension: "coin.focus"
+                extension: "package-json.npm.install"
             },
             {
                 label: `rm -rf node_modules`,
                 icon: `del.png`,
-                extension: "coin.focus"
+                extension: "package-json.rm"
             }
         ]
     }

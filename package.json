@@ -55,8 +55,16 @@
     },
     "commands": [
       {
-        "command": "coin.focus",
-        "title": "跳转到浏览器火币网地址"
+        "command": "package-json.ls",
+        "title": "遍历目录"
+      },
+      {
+        "command": "package-json.rm",
+        "title": "删除node_modules"
+      },
+      {
+        "command": "package-json.npm.install",
+        "title": "npm install"
       }
     ]
   },
