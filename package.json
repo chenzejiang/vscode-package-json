@@ -16,31 +16,15 @@
     "Other"
   ],
   "activationEvents": [
-    "*"
+    "workspaceContains:package.json"
   ],
   "main": "./extension",
   "contributes": {
-    "configuration": {
-      "properties": {
-        "btc-price-watch.coin": {
-          "type": "array",
-          "default": [
-            "btcusdt"
-          ],
-          "description": "配置需要监控的数字货币"
-        },
-        "btc-price-watch.updateInterval": {
-          "type": "number",
-          "default": 10000,
-          "description": "配置轮询请求最新数据的时间间隔，单位：毫秒"
-        }
-      }
-    },
     "viewsContainers": {
       "activitybar": [
         {
           "id": "package",
-          "title": "包管理",
+          "title": "package-json",
           "icon": "img/icon.svg"
         }
       ]
@@ -48,25 +32,15 @@
     "views": {
       "package": [
         {
-          "id": "packageScripts",
-          "name": "脚本"
+          "id": "packageScript",
+          "name": "项目脚本"
+        },
+        {
+          "id": "extensionScript",
+          "name": "扩展脚本"
         }
       ]
-    },
-    "commands": [
-      {
-        "command": "package-json.ls",
-        "title": "遍历目录"
-      },
-      {
-        "command": "package-json.rm",
-        "title": "删除node_modules"
-      },
-      {
-        "command": "package-json.npm.install",
-        "title": "npm install"
-      }
-    ]
+    }
   },
   "scripts": {
     "postinstall": "node ./node_modules/vscode/bin/install",
@@ -81,6 +55,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "fs-extra": "^8.1.0",
     "open": "^6.4.0"
   },
   "repository": {

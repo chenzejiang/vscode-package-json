@@ -49,7 +49,7 @@ module.exports = class TreeProvider {
         return new ItemLucky(label, vscode.TreeItemCollapsibleState.None, {
             title: label,
             command: extension,
-            arguments: []
+            arguments: [label]
         }, {
             dark: darkIcon,
             light: lightIcon

@@ -1,21 +1,20 @@
 const vscode = require('vscode');
-const util = require('./util');
+const fse = require('fs-extra');
 const TreeProvider = require("./TreeProvider");
-
-// @ts-ignore
-const packageData = require("./../package.json");
 
 class App {
     constructor(context){
         this.activateContext = context;
-        this.coins = util.getConfigurationCoin();
+        this.packageObj = {}
         this.init();
     }
     /**
      * 获取脚本
      */
     getScriptsData() {
-        return Object.keys(packageData.scripts).map((item, index) => {
+        const data = this.packageObj.scripts;
+        console.log(data);
+        return Object.keys(data).map((item, index) => {
             return {
                 label: `npm run ${item}`,
                 icon: `${index}.png`,
@@ -26,12 +25,17 @@ class App {
     /**
      * 自己增加的脚本
      */
-    addCustomScript(){
+    extensionScript(){
         return [
             {
                 label: `npm install`,
                 icon: `npm.png`,
                 extension: "package-json.npm.install"
+            },
+            {
+                label: `cnpm install`,
+                icon: `cnpm.png`,
+                extension: "package-json.cnpm.install"
             },
             {
                 label: `rm -rf node_modules`,
@@ -44,17 +48,26 @@ class App {
      * 更新 ActivityBar
      */
     updateActivityBar() {
-        const scriptData = this.getScriptsData().concat(this.addCustomScript());
-        console.log(scriptData);
-        let provider = new TreeProvider(vscode.workspace.rootPath, scriptData, this.activateContext);
-        vscode.window.registerTreeDataProvider("packageScripts", provider);
+        /* 项目脚本 */
+        const packageScriptProvider = new TreeProvider(vscode.workspace.rootPath, this.getScriptsData(), this.activateContext);
+        vscode.window.registerTreeDataProvider("packageScript", packageScriptProvider);
+        /* 自定义扩展脚本 */
+        const extensionScriptProvider = new TreeProvider(vscode.workspace.rootPath, this.extensionScript(), this.activateContext);
+        vscode.window.registerTreeDataProvider("extensionScript", extensionScriptProvider);
     }
     /**
-     * 初始化
+     * 初始化 获取package.json的数据
      */
     init() {
-        console.log('app-init');
-        this.updateActivityBar();
+        const packagePath = `${vscode.workspace.rootPath}\\package.json`;
+        fse.readJson(packagePath)
+        .then(packageObj => {
+            this.packageObj = packageObj;
+            this.updateActivityBar();
+        })
+        .catch(err => {
+            console.error(err)
+        });
     }
 }
 module.exports = App;
