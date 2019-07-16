@@ -2,7 +2,7 @@
   "name": "package-json",
   "displayName": "",
   "description": "这是一个快捷执行package.json命令的 vs code 扩展, 搭配Vue,React 体验更佳 ~",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "package-json",
   "keywords": [
     "package",
