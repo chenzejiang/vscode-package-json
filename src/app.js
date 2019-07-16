@@ -5,7 +5,7 @@ const TreeProvider = require("./TreeProvider");
 class App {
     constructor(context){
         this.activateContext = context;
-        this.packageObj = {}
+        this.packageObj = {};
         this.init();
     }
     /**
