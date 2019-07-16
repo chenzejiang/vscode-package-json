@@ -1,4 +1,14 @@
 # vscode-package-json
-vscode-package-json 扩展
 
-开发中..
+GitHub: https://github.com/chenzejiang/vscode-package-json 欢迎star ~<br>
+### 这是一个快捷执行package.json命令的工具
+
+## Result:
+![](https://github.com/chenzejiang/vscode-package-json/raw/master/img/process.gif)
+
+## Author：
+webJ 
+
+## Contact:
+QQ: 820289461<br>
+email: 820289461@qq.com
