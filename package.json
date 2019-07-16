@@ -5,7 +5,8 @@
   "version": "1.0.0",
   "publisher": "package-json",
   "keywords": [
-    "btc",
+    "package",
+    "npm",
     "vscode"
   ],
   "icon": "img/icon.png",
