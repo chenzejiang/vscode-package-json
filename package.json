@@ -1,9 +1,9 @@
 {
-  "name": "btc-watch",
-  "displayName": "btc-watch",
-  "description": "Vs Code配置状态栏查看 比特币，以太坊等400多种交易对价格，对接火币网API",
-  "version": "1.0.6",
-  "publisher": "btc-watch",
+  "name": "package-json",
+  "displayName": "",
+  "description": "这是一个快捷执行package.json命令的 vs code 扩展, 搭配Vue,React 体验更佳 ~",
+  "version": "1.0.0",
+  "publisher": "package-json",
   "keywords": [
     "btc",
     "vscode"
