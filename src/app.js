@@ -1,7 +1,8 @@
-const vscode = require('vscode');
-const fse = require('fs-extra');
+const vscode       = require('vscode');
+const fse          = require('fs-extra');
 const TreeProvider = require("./TreeProvider");
-const os = require('os');
+const os           = require('os');
+
 class App {
     constructor(context){
         this.activateContext = context;
