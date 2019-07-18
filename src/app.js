@@ -1,7 +1,7 @@
 const vscode = require('vscode');
 const fse = require('fs-extra');
 const TreeProvider = require("./TreeProvider");
-
+const os = require('os');
 class App {
     constructor(context){
         this.activateContext = context;
@@ -23,9 +23,10 @@ class App {
         });
     }
     /**
-     * 自己增加的脚本
+     * 扩展脚本
      */
     extensionScript(){
+        const delCmd = os.platform() === 'win32' ? 'del /F /S /Q node_modules' : 'rm -rf node_modules';
         return [
             {
                 label: `npm install`,
@@ -38,7 +39,7 @@ class App {
                 extension: "package-json.cnpm.install"
             },
             {
-                label: `rm -rf node_modules`,
+                label: delCmd,
                 icon: `del.png`,
                 extension: "package-json.rm"
             }
@@ -59,7 +60,8 @@ class App {
      * 初始化 获取package.json的数据
      */
     init() {
-        const packagePath = `${vscode.workspace.rootPath}\\package.json`;
+        const pathFlag = os.platform() === 'win32' ? '\\' : '/';
+        const packagePath = `${vscode.workspace.rootPath}${pathFlag}package.json`;
         fse.readJson(packagePath)
         .then(packageObj => {
             this.packageObj = packageObj;
