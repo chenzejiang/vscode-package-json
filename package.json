@@ -1,6 +1,6 @@
 {
   "name": "package-json",
-  "displayName": "",
+  "displayName": "package-json",
   "description": "这是一个快捷执行package.json命令的 vs code 扩展, 搭配Vue,React 体验更佳 ~",
   "version": "1.0.1",
   "publisher": "package-json",
@@ -11,7 +11,7 @@
   ],
   "icon": "img/icon.png",
   "engines": {
-    "vscode": "^1.28.0"
+    "vscode": "^1.22.0"
   },
   "categories": [
     "Other"
