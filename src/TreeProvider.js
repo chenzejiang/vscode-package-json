@@ -40,17 +40,18 @@ module.exports = class TreeProvider {
     newLuckyItem(item) {
         const {
             label,
+            cmd,
             extension,
             icon
         } = item;
-
+        console.log(icon);
         let darkIcon = path.join(__dirname, "..", "icon", icon);
         let lightIcon = path.join(__dirname, "..", "icon", icon);
 
         return new ItemLucky(label, vscode.TreeItemCollapsibleState.None, {
             title: label,
             command: extension,
-            arguments: [label]
+            arguments: [cmd]
         }, {
             dark: darkIcon,
             light: lightIcon

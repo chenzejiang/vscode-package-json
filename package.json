@@ -1,13 +1,14 @@
 {
   "name": "package-json",
   "displayName": "package-json",
-  "description": "这是一个快捷执行package.json命令的 vs code 扩展, 搭配Vue,React 体验更佳 ~",
-  "version": "1.0.1",
+  "description": "这是一个快捷执行package.json命令的 vs code 扩展, 搭配Vue,React等体验更佳 ~",
+  "version": "1.0.3",
   "publisher": "package-json",
   "keywords": [
     "package",
     "npm",
-    "vscode"
+    "vscode",
+    "scripts"
   ],
   "icon": "img/icon.png",
   "engines": {
@@ -34,11 +35,7 @@
       "package": [
         {
           "id": "packageScript",
-          "name": "项目脚本"
-        },
-        {
-          "id": "extensionScript",
-          "name": "扩展脚本"
+          "name": "scripts"
         }
       ]
     }
